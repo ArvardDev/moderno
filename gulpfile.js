@@ -9,7 +9,7 @@ let gulp = require('gulp'),
 
 
 gulp.task('scss', function () {
-	return gulp.src('app/scss/*.scss')
+	return gulp.src('app/scss/**/*.scss')
 		.pipe(sass({ outputStyle: 'expanded' }))/* or compressed */
 		.pipe(autoprefixer({
 			overrideBrowserslist: ['last 20 versions'],
@@ -73,4 +73,4 @@ gulp.task('watch', function () {
 
 
 gulp.task('start', gulp.parallel('script', 'style'));
-gulp.task('default', gulp.parallel('scss', 'browser-sync', 'watch'));
+gulp.task('default', gulp.parallel('script', 'style', 'scss', 'browser-sync', 'watch'));
